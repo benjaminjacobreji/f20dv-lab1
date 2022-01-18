@@ -16,12 +16,27 @@ function addDivs(){
         d3.select('body').append('div')
             .attr('class', 'containers m-3')
             .style('color', i < 5 ? 'red' : 'green')
-            .text(i + 1);
+            .text(i + 1)
+            .attr('id', i < 1 ? 'first' : 'rest');
     }
+}
+
+function changeTextToFirstDiv(){
+    d3.select('#first').text('start')
+        .style('color', 'purple');
+}
+
+function demoD3Chaining(){
+    d3.select('body')
+        .append('p')
+        .text('Hello world')
+        .style('color', 'green');
 }
 
 window.addEventListener('load', function() {
     logD3Version();
     modifyParagraph();
     addDivs();
+    changeTextToFirstDiv();
+    demoD3Chaining();
 })
