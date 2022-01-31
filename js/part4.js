@@ -7,7 +7,7 @@ function appendDataToDOM() {
         .data(myData)
         .enter()
         .append('span')
-        .text(function (d, i) {
+        .text(function (d) {
             return d;
         })
         .style("color", function (d) {
@@ -28,7 +28,7 @@ function removeDataFromDOM() {
     var p = d3.select("#body2")
         .selectAll("p")
         .data(myData2)
-        .text(function (d, i) {
+        .text(function (d) {
             return d;
         })
         .exit()
