@@ -1,0 +1,11 @@
+shape,x,y,x1,y1,r,color
+rect,50,300,400,75,,blue
+rect,150,225,200,75,,darkgrey
+circle,150,375,,,50,black
+circle,350,375,,,50,black
+ellipse,80,315,30,10,,yellow
+line,150,225,250,125,,black
+
+
+
+
