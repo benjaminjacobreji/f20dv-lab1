@@ -151,4 +151,4 @@ window.addEventListener('load', function () {
     drawBarChart();
     drawLineChart('../csv/sine.csv', 'blue', 'circle');
     drawLineChart('../csv/cosine.csv', 'green', 'triangle');
-})
+});
