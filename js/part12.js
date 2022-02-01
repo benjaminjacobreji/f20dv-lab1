@@ -58,6 +58,7 @@ function plotLineChart(file, color) {
                 .y(function (d) { return y(d.y) })
             );
     });
+    
 }
 
 window.addEventListener('load', function () {

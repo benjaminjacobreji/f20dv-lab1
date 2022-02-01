@@ -1,5 +1,5 @@
 
-function createSquareSVGUsingLines(){
+function createSquareSVGUsingLines() {
     //Create SVG element
     var svg = d3.select("#square")
         .append("svg")
@@ -33,125 +33,144 @@ function createSquareSVGUsingLines(){
         .style("stroke", "yellow");
 }
 
-function createSVGFromCSV(){
+
+let rectangleShapes = []
+let circleShapes = []
+let ellipseShapes = []
+let lineShapes = []
+let lightobject;
+let boolenlight = true;
+
+function createSVGFromCSV() {
 
     var svg = d3.select("#car")
         .append("svg")
         .attr("width", 500)
         .attr("height", 500)
+        .attr("id", "svgcar")
         .style("border", '1px solid black');
 
-    let rectangleShapes = []
-    let circleShapes = []
-    let ellipseShapes = []
-    let lineShapes = []
-
-    d3.csv("../csv/car.csv", function(data){
-        if (data.shape === 'rect'){
+    d3.csv("../csv/car.csv", function (data) {
+        if (data.shape === 'rect') {
             rectangleShapes.push(data);
         }
-        if (data.shape === 'circle'){
+        if (data.shape === 'circle') {
             circleShapes.push(data);
         }
-        if (data.shape === 'ellipse'){
+        if (data.shape === 'ellipse') {
+            lightobject = data;
             ellipseShapes.push(data);
         }
-        if (data.shape === 'line'){
+        if (data.shape === 'line') {
             lineShapes.push(data);
         }
-        
-    }).then(function(){
+
+    }).then(function () {
 
         svg.selectAll("rect")
-        .data(rectangleShapes)
-        .enter()
-        .append("rect")
-        .attr("x", function(d){
-            return d.x;
-        })
-        .attr("y", function(d){
-            return d.y;
-        })
-        .attr("width", function(d){
-            return d.x1;
-        })
-        .attr("height", function(d){
-            return d.y1;
-        })
-        .style("fill", function(d){
-            return d.color;
-        })
-        .exit()
-        .remove();
+            .data(rectangleShapes)
+            .enter()
+            .append("rect")
+            .attr("x", function (d) {
+                return d.x;
+            })
+            .attr("y", function (d) {
+                return d.y;
+            })
+            .attr("width", function (d) {
+                return d.x1;
+            })
+            .attr("height", function (d) {
+                return d.y1;
+            })
+            .style("fill", function (d) {
+                return d.color;
+            })
+            .exit()
+            .remove();
 
         svg.selectAll("circle")
-        .data(circleShapes)
-        .enter()
-        .append("circle")
-        .attr("cx", function(d){
-            return d.x;
-        })
-        .attr("cy", function(d){
-            return d.y;
-        })
-        .attr("r", function(d){
-            return d.r;
-        })
-        .style("fill", function(d){
-            return d.color;
-        })
-        .exit()
-        .remove();
+            .data(circleShapes)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+                return d.x;
+            })
+            .attr("cy", function (d) {
+                return d.y;
+            })
+            .attr("r", function (d) {
+                return d.r;
+            })
+            .style("fill", function (d) {
+                return d.color;
+            })
+            .exit()
+            .remove();
 
         svg.selectAll("ellipse")
-        .data(ellipseShapes)
-        .enter()
-        .append("ellipse")
-        .attr("cx", function(d){
-            return d.x;
-        })
-        .attr("cy", function(d){
-            return d.y;
-        })
-        .attr("rx", function(d){
-            return d.x1;
-        })
-        .attr("ry", function(d){
-            return d.y1;
-        })
-        .style("fill", function(d){
-            return d.color;
-        })
-        .exit()
-        .remove();
+            .data(ellipseShapes)
+            .enter()
+            .append("ellipse")
+            .attr("cx", function (d) {
+                return d.x;
+            })
+            .attr("cy", function (d) {
+                return d.y;
+            })
+            .attr("rx", function (d) {
+                return d.x1;
+            })
+            .attr("ry", function (d) {
+                return d.y1;
+            })
+            .style("fill", function (d) {
+                return d.color;
+            })
+            .exit()
+            .remove();
 
         svg.selectAll("line")
-        .data(lineShapes)
-        .enter()
-        .append("line")
-        .attr("x1", function(d){
-            return d.x;
-        })
-        .attr("y1", function(d){
-            return d.y;
-        })
-        .attr("x2", function(d){
-            return d.x1;
-        })
-        .attr("y2", function(d){
-            return d.y1;
-        })
-        .style("stroke", function(d){
-            return d.color;
-        })
-        .exit()
-        .remove();
+            .data(lineShapes)
+            .enter()
+            .append("line")
+            .attr("x1", function (d) {
+                return d.x;
+            })
+            .attr("y1", function (d) {
+                return d.y;
+            })
+            .attr("x2", function (d) {
+                return d.x1;
+            })
+            .attr("y2", function (d) {
+                return d.y1;
+            })
+            .style("stroke", function (d) {
+                return d.color;
+            })
+            .exit()
+            .remove();
+
+            setTimeout(function () {
+                if (boolenlight) {
+                    ellipseShapes.pop();
+                    boolenlight = false;
+                } else {
+                    ellipseShapes.push(lightobject);
+                    boolenlight = true;
+                }
+                svg.selectAll("ellipse")
+                    .data(ellipseShapes)
+                    .join()
+            }, 3000);
+
+
     });
 }
 
 window.addEventListener('load', function () {
-    
+
     createSquareSVGUsingLines();
     createSVGFromCSV();
-
 })
