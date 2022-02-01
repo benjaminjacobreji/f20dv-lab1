@@ -197,13 +197,13 @@ function processHeartFailures(){
         if (data.age > 1 && data.age <= 30) {
             heartfailuresperagerange[0].count++;
         }
-        if (data.age > 31 && data.age <= 40) {
+        if (data.age > 30 && data.age <= 40) {
             heartfailuresperagerange[1].count++;
         }
-        if (data.age > 41 && data.age <= 60) {
+        if (data.age > 40 && data.age <= 60) {
             heartfailuresperagerange[2].count++;
         }
-        if (data.age > 61 && data.age <= 100) {
+        if (data.age > 60 && data.age <= 100) {
             heartfailuresperagerange[3].count++;
         }
     }).then(function () {
