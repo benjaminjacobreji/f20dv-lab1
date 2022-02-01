@@ -49,7 +49,7 @@ function plotLineChart(file, color) {
             .call(d3.axisRight(y));
         // Add a background image in the svg with light grey fill
         svg.append("image")
-            .attr("xlink:href", "https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=michael-dziedzic-nc11Hg2ja-s-unsplash.jpg&w=640")
+            .attr("xlink:href", "https://images.unsplash.com/photo-1618489517022-5c31fa91d017?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=fakurian-design-wxvYVpjWxg4-unsplash.jpg")
             .attr("width", xMax)
             .attr("height", yMax)
             .attr("x", 0)

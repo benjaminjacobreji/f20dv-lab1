@@ -1,0 +1,12 @@
+shape,x,y,x1,y1,r,color
+rect,140,130,220,220,,blue
+circle,0,0,,,80,green
+ellipse,250,240,100,20,,red
+line,250,10,250,125,,blue
+circle,500,0,,,80,green
+ellipse,250,240,20,100,,red
+circle,500,500,,,80,green
+circle,0,500,,,80,green
+line,250,360,250,490,,blue
+line,10,240,135,240,,blue
+line,370,240,490,240,,blue
