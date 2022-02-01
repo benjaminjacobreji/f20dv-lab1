@@ -1,5 +1,6 @@
 // Set Dimensions
-const xSize = 600; const ySize = 600;
+const xSize = 600; 
+const ySize = 600;
 const margin = 40;
 const xMax = xSize - margin * 2;
 const yMax = ySize - margin * 2;
@@ -64,4 +65,4 @@ window.addEventListener('load', function () {
     plotLineChart('../csv/sine.csv', 'blue');
     plotLineChart('../csv/cosine.csv', 'green');
 
-})
+});
