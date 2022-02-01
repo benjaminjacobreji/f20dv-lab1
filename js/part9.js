@@ -68,5 +68,5 @@ function buttonClick(){
 }
 
 window.addEventListener('load', function () {
-    // createBarChartFromCSV('../csv/barchart.csv');
+    
 })
