@@ -56,10 +56,12 @@ function addAxisToBarCharChart() {
         .attr("width", 500)
         .attr("height", 500);
 
+    // create a linear 
     var yscale = d3.scaleLinear()
         .domain([d3.max(data), 0])
         .range([0, width]);
-
+ 
+    // scaleBand is used to have equal width of each bar across the width
     var xscale = d3.scaleBand()
         .domain(d3.range(data.length))
         .range([0, width]);

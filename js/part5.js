@@ -18,13 +18,13 @@ function processTitanicCSV() {
 
     d3.csv(titaniccsv, function (data) {
 
+        // simple data analysis
         if (data.Name.includes('Mr.')) {
             mrCount++;
         }
         if (data.Name.includes('Mrs.')) {
             mrsCount++;
-        }
-        // if it does not contain mrs or mr 
+        } 
         if(!data.Name.includes('Mrs.') && !data.Name.includes('Mr.')){
             otherCount++;
         }

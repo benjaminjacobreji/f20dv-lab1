@@ -36,7 +36,7 @@ function plotLineChart(file, color) {
         // top
         svg.append("g")
             .call(d3.axisTop(x));
-        // Y Axis
+        // Y Axis scaling
         const y = d3.scaleLinear()
             .domain([yExtent[0], yExtent[1]])
             .range([yMax, 0]);

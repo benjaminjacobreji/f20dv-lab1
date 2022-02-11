@@ -73,7 +73,7 @@ function createCircleGraph() {
             return i * 100 + 50 + (d / 2);
         })
         .attr("y", function (d, i) {
-            return 100 + (d / 2);
+            return 100 + (d / 1);
         })
         .attr("stroke", "teal")
         .attr("font-size", "12px")
